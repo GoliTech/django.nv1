@@ -1,0 +1,25 @@
+name: Django                                  # workflow name
+
+on:
+  push:
+    branches:                                 # similar to "only" in GitLab
+      - main
+
+jobs:
+
+  oast_npm_audit:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '10.x'
+      
+      - run: npm install
+      - run: npm audit --json | tee npm_audit_report.json
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: nmp_audit
+          path: npm_audit_report.json
