@@ -5,7 +5,6 @@ on:
     branches:                                 # similar to "only" in GitLab
       - main
 
-
 jobs:
 
   oast_npm_audit:
