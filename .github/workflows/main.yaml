@@ -1,10 +1,5 @@
 name: Django                                  # workflow name
 
-on:
-  push:
-    branches:                                 # similar to "only" in GitLab
-      - main
-
 jobs:
 
   oast_npm_audit:
